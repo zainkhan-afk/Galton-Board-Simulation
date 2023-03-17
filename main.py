@@ -13,10 +13,10 @@ balls = []
 
 
 balls.append(Particle(x = WIDTH//2, y = HEIGHT -250))
-balls.append(Particle(x = WIDTH//2, y = HEIGHT -200))
-balls.append(Particle(x = WIDTH//2, y = HEIGHT -150))
-balls.append(Particle(x = WIDTH//2, y = HEIGHT -100))
-balls.append(Particle(x = WIDTH//2, y = HEIGHT - 50))
+# balls.append(Particle(x = WIDTH//2, y = HEIGHT -200))
+# balls.append(Particle(x = WIDTH//2, y = HEIGHT -150))
+# balls.append(Particle(x = WIDTH//2, y = HEIGHT -100))
+# balls.append(Particle(x = WIDTH//2, y = HEIGHT - 50))
 
 board_p = []
 board_pts_y_start = 150
