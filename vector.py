@@ -52,6 +52,8 @@ class Vector:
 		return Vector(angle = self.angle, magnitude = self.magnitude)
 
 	def normalize(self):
+		if self.magnitude == 0:
+			return Vector(x = 0, y = 0)
 		return Vector(x = self.x/self.magnitude, y = self.y/self.magnitude)
 
 	def rotate(self, angle, degrees = True):

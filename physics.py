@@ -4,7 +4,7 @@ from settings import *
 
 class Physics:
 	def __init__(self):
-		self.g = Vector(x = 0.0, y = 0.5)
+		self.g = Vector(x = 0.0, y = 9)
 
 	def check_collisions(self, particles):
 		collision_pairs = []
@@ -30,23 +30,11 @@ class Physics:
 					p1.vel = p1.vel + vel_diff.normalize() * (j/p1.mass)
 					p2.vel = p2.vel - vel_diff.normalize() * (j/p2.mass)
 
-					while R<=(p1.radius + p2.radius):
-						p1.update(Vector(x = 0, y = 0))
-						p2.update(Vector(x = 0, y = 0))
-						direction = p1.pos - p2.pos 
-						R = direction.magnitude
-
-			if p1.pos.y + p1.radius > HEIGHT:
-				p1.vel.y *= -1
-				p1.pos.y = HEIGHT - p1.radius
-
-			if p1.pos.x + p1.radius > WIDTH:
-				p1.vel.x *= -1
-				p1.pos.x = WIDTH - p1.radius
-
-			elif p1.pos.x - p1.radius < 0:
-				p1.vel.x *= -1
-				p1.pos.x = p1.radius
+					# while R<=(p1.radius + p2.radius):
+					# 	p1.update(Vector(x = 0, y = 0))
+					# 	p2.update(Vector(x = 0, y = 0))
+					# 	direction = p1.pos - p2.pos 
+					# 	R = direction.magnitude
 
 			p1.update(self.g)
 
