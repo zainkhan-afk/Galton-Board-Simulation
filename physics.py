@@ -18,31 +18,23 @@ class Physics:
 					collision_pairs.append([p1, p2])
 					collision_pairs.append([p2, p1])
 
-					vel_diff2 = p1.vel - p2.vel
-					vel_diff1 = p2.vel - p1.vel
+					vel_diff = p1.vel - p2.vel
 
-					p1.vel = vel_diff1
-					p2.vel = vel_diff2
+					e = 1
+					j = -(1+e)*vel_diff.dot(vel_diff.normalize())
+					j = j / (1/p1.mass + 1/p2.mass)
 
-					# temp_v = p1.vel
-					# p1.vel = p2.vel
-					# p2.vel = temp_v
-					# p1.vel = p1.vel*(-1)
-					# p2.vel = p2.vel*(-1)
+					# print(vel_diff.normalize())
+					# print(p1.vel)
+
+					p1.vel = p1.vel + vel_diff.normalize() * (j/p1.mass)
+					p2.vel = p2.vel - vel_diff.normalize() * (j/p2.mass)
 
 					while R<=(p1.radius + p2.radius):
 						p1.update(Vector(x = 0, y = 0))
 						p2.update(Vector(x = 0, y = 0))
 						direction = p1.pos - p2.pos 
 						R = direction.magnitude
-
-					# p1.pos.x = p1.tail[-2][0]
-					# p1.pos.y = p1.tail[-2][1]
-
-					# p2.pos.x = p2.tail[-2][0]
-					# p2.pos.y = p2.tail[-2][1]
-
-					print(direction.angle)
 
 			if p1.pos.y + p1.radius > HEIGHT:
 				p1.vel.y *= -1

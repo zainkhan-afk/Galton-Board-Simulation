@@ -59,6 +59,9 @@ class Vector:
 			angle = angle/180*np.pi
 		return Vector(magnitude = self.magnitude, angle = self.angle + angle)
 
+	def dot(self, other):
+		return self.x*other.x + self.y*other.y
+
 	def __str__(self):
 		return f"X: {self.x}, Y: {self.y}, Magnitude: {self.magnitude}, Angle: {self.angle}"
 
