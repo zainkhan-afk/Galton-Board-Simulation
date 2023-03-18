@@ -3,7 +3,7 @@ import random
 from settings import *
 
 class Particle:
-	def __init__(self, x = None, y = None, mass = 1, radius = 10, color = None):
+	def __init__(self, x = None, y = None, mass = 1, radius = 5, color = None):
 		if x is None or y is None:
 			self.pos = Vector(x = random.randint(0, WIDTH), y = random.randint(0, HEIGHT))
 		else:
@@ -25,7 +25,7 @@ class Particle:
 		self.vel += self.acc*DELTA_T
 		self.pos += self.vel*DELTA_T
 
-		
+
 		if self.pos.y + self.radius > HEIGHT:
 			self.vel.y *= -1
 			self.pos.y = HEIGHT - self.radius

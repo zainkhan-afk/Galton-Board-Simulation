@@ -27,14 +27,18 @@ class Draw:
 
 		return particle_tail_mask
 
-	def draw(self, particles):
+	def draw(self, particles, borders):
 		for particle in particles:
 			x = int(particle.pos.x)
 			y = int(particle.pos.y)
 
 			cv2.circle(self.canvas, (x, y), particle.radius+2, particle.color, -1)
 
+
 		self.canvas = cv2.GaussianBlur(self.canvas,(17,17),0)
+		for border in borders:
+			cv2.line(self.canvas, (border.x1, border.y1), 
+						(border.x2, border.y2), border.color, border.thickness)
 
 		for particle in particles:
 			x = int(particle.pos.x)
